@@ -10,7 +10,7 @@
 - [GDSC Sookmyung Flutter Study Tistory](https://dsc-sookmyung.tistory.com/category/Group%20Study%20%282023-2024%29/Flutter)
 
 ### 커리큘럼
-|주차|주제|진척도|
+|주차|주제|진척도| 
 |---|---|:---:|
 |1주차|Dart 언어 이해하기|<ul><li>- [ ] </li></ul>|
 |2주차|Flutter 시작하기|<ul><li>- [ ] </li></ul>|
