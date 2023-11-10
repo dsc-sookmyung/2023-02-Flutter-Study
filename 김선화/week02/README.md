@@ -1,5 +1,5 @@
 # 2주차
-## 1.1 Reauirements
+## 1.1 Requirements
 
 Dart는 Flutter 만드는 데에 꼭 필요한 언어이다.
 Flutter 는 코드의 가독성 위해 Dart의 문법을 사용.
