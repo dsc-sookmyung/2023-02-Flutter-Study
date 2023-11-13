@@ -1,30 +1,45 @@
 # 2주차
-## 1.1 Requirements
+## 2.1 Dart Pad
+Flutter 설치하지 않고도 Dart Pad에서 코드 작성 가능!
 
-Dart는 Flutter 만드는 데에 꼭 필요한 언어이다.
-Flutter 는 코드의 가독성 위해 Dart의 문법을 사용.
+## 2.2 Running Flutter
+window 노트북이어서 android 환경만 실행해 보았는데, 똑같은 화면이 크롬 화면에서도 뜨며 변경사항이 생기더라도 바로 적용되는 모습을 보임
 
+## 2.3 Hello World
+widget은 레고 블럭과 같은 존재. 합쳐 UI, 앱을 만들 수 있다. 
 
-## 1.2 Why Flutter
-ios, 안드로이드, 웹, 맥os, 윈도으, 리눅스, 임베디드까지 모두 Flutter로 만들수 있다는 게 놀라움. 많은 대기업에서 이미 Flutter를 사용중이다. 
+build 메소드가 앱의 UI를 만들게 됨.
+Material app은 google, Cupertino app은ios 느낌이 나도록 앱 만들기
 
-Flutter로 만들 수 있는 위의 모든 게 원래는 css, javascript, react 등 서로 다른 언어들로 만들어졌는데 하나의 Flutter라는 프레임워크로 제작할 수 있다는 게 간편하고 앞으로 더 많이 사용될 것으로 생각된다.
+화면이 scaffold라는 가지는 것을 가져야 하는데, text만 무작정 작성하면 제일 위에 작성된다. 
 
+## 2.4 Recap
+위젯으로 우리가 원하는 모든 것들을 실행할 수 있다니,,,
+home 안에 scaffold라는 화면의 구조를 지정하는 위젯을 넣고 넣고 할 수 있다.
 
-## 1.3 How Flutter Works
-Flutter 가 동작하는 방식으로 인해 큰 비판을 받았었다네...
-Flutter 코드는 다른 코드들과 달리 OS와 직접 대화하지 않는다. 다른 크로스플랫폼 프레임워크와 다른 점이 있다. 
+## 2.5 Classes Recap
+오늘 실행 코드~
+```dart
+import 'package:flutter/material.dart';
 
-렌더링 엔진에 의해 움직이기에 화면 상의 픽셀로 모든 디자인을 조절할 수 있다. 
+void main() {
+  runApp(App());
+}
 
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Hello Flutter!'),
+        ),
+        body: Center(
+          child: Text('Hello World!'),
+        ),
+      ),
+    );
+  }
+}
 
-## 1.4 Flutter vs React Native
-Flutter는 게임 엔진처럼 작동되고, 렌더링할 때 호스트 os를 부르지 않고 모두 픽셀로 작동한다. 복잡한 디자인 요구사항이나 고수준의 애니메이션을 원하는 경우 좋다.
-
-React Native는 안드로이드 os나 ios 처럼 보이기 원할 때 주로 사용. 버튼이나, input, 검색 바를 ios와 똑같이 만들고 싶다면 react native가 호스트 운영체제 스타일을 제공해주어 편하다.
-
-
-## 1.5 Recap
-Flutter 엔진이 UI를 그려주는 역할을 대신 하고, os와 소통하지 않기 때문에 모든 픽셀을 자유자제로 움질일 수 있다.
-
-다른 프레임워크보다 자유롭게 설정 가능하고, 다양한 디자인을 그릴 수 있을 듯.
+```
