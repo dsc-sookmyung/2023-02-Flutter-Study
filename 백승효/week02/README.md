@@ -42,3 +42,11 @@ Doctor summary (to see all details, run flutter doctor -v):
 ```
 
 ### 6. 플러터 프로젝트 생성 (Hello Flutter)
+
+- flutter 는 객체 지향 프레임 워크로 위젯들의 조합
+- build 는 위젯의 UI를 구성하게 해줌
+- runApp 은 Wiget Class를 인자로 받아 트리를 화면에 표시하는 함수
+- StatelessWiget : 위젯 종류 중 정보저장이 필요없는 위젯을 상속, 빌드는 한번만 실행된다.
+- StatefulWidget : 사용자의 상호작용을 위해 상태의 저장을 필요로하는 위젯
+- Wiget build: 위젯들이 화면에 빌드할 수 있도록 한다.
+- Scaffold: 비주얼 레이아웃 구조를 구현(필수 요소)
