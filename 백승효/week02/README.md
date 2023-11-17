@@ -40,3 +40,5 @@ Doctor summary (to see all details, run flutter doctor -v):
 
 • No issues found!
 ```
+
+### 6. 플러터 프로젝트 생성 (Hello Flutter)
