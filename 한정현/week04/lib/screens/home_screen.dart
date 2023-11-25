@@ -47,6 +47,15 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  void onRestartPressed() {
+    if (totalSeconds != 1500) {
+      setState(() {
+        isRunning = false;
+        totalSeconds = twentyFveMinutes;
+      });
+    }
+  }
+
   String format(int seconds) {
     var duration = Duration(seconds: seconds);
     return duration.toString().split(".").first.substring(2, 7);
@@ -74,19 +83,34 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Flexible(
             flex: 3,
-            child: Column(
-              children: [
-                Center(
-                  child: IconButton(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
                     iconSize: 120,
                     color: Theme.of(context).cardColor,
                     onPressed: isRunning ? onPausePressed : onStartPressed,
-                    icon: Icon(isRunning
-                        ? Icons.pause_circle_outline
-                        : Icons.play_circle_outline),
+                    icon: Icon(
+                      isRunning
+                          ? Icons.pause_circle_outline
+                          : Icons.play_circle_outline,
+                    ),
                   ),
-                ),
-              ],
+                  const SizedBox(height: 16),
+                  TextButton(
+                    onPressed: onRestartPressed,
+                    child: Text(
+                      'RESTART',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).cardColor,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           Flexible(
@@ -101,31 +125,32 @@ class _HomeScreenState extends State<HomeScreen> {
                           const BorderRadius.vertical(top: Radius.circular(50)),
                     ),
                     child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Pomodoros',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
-                              color: Theme.of(context)
-                                  .textTheme
-                                  .headlineLarge!
-                                  .color,
-                            ),
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Pomodoros',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                            color: Theme.of(context)
+                                .textTheme
+                                .headlineLarge!
+                                .color,
                           ),
-                          Text(
-                            '$totalPomodoros',
-                            style: TextStyle(
-                              fontSize: 58,
-                              fontWeight: FontWeight.w600,
-                              color: Theme.of(context)
-                                  .textTheme
-                                  .headlineLarge!
-                                  .color,
-                            ),
+                        ),
+                        Text(
+                          '$totalPomodoros',
+                          style: TextStyle(
+                            fontSize: 58,
+                            fontWeight: FontWeight.w600,
+                            color: Theme.of(context)
+                                .textTheme
+                                .headlineLarge!
+                                .color,
                           ),
-                        ]),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

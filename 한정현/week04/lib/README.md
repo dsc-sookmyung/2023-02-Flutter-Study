@@ -20,7 +20,6 @@ Dart는 null safe 언어이기 때문에 우리가 null 값에 접근할 수 있
 즉, 이벤트에 반응한다.
 
 Widget Life Cycle
-
 initState()
 : build 이전에 호출되어 변수를 초기화하고 API 업데이트를 도와준다.
 dispose()
