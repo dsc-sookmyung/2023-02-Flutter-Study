@@ -12,7 +12,7 @@
 flutter pub add (라이브러리명)
 ```
 
-보통 이런 식으로 설치한다.
+- 설치하기
 
 ```dart
 //http 설치
@@ -120,8 +120,128 @@ FutureBuilder(
 
 ---
 
-ListView 라는 기본 옵션도 있지만, 더 나아가 ListViewBuilder를 사용가능하다.
+ListView.builder에 몇 개의 항목을 만들 것이고 몇 번째 항목에는 어떤 View를 그려주자라는 것을 알려주어야 한다. itemCount가 이 몇 개에 해당하고, itemBuilder가 어떤 View를 그려주자 라는 것에 해당한다.
+
+- itemCount : int값이며 ListView 항목들의 총개수에 해당한다. 단, 주어지지 않으면 무한히 항목을 만든다.
+- itemBuilder(BuildContext ctx, int idx) : idx번째에 해당하는 항목에 그려질 View를 반환하는 함수이다. idx는 0부터 시작한다.
+
+```dart
+  ListView makeList(AsyncSnapshot<List<WebtoonModel>> snapshot) {
+    return ListView.separated(
+      scrollDirection: Axis.horizontal,
+      //scrollDirection : Axis.horizontal 인 경우 가로방향으로 항목이 나열되며, 가로방향으로 스크롤이 됨.
+      itemCount: snapshot.data!.length,
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      itemBuilder: (context, index) {
+        var webtoon = snapshot.data![index];
+        return Webtoon(
+            title: webtoon.title, thumb: webtoon.thumb, id: webtoon.id);
+      },
+      separatorBuilder: (context, index) => const SizedBox(
+        width: 20,
+      ),
+    );
+```
 
 ### 5. Hero
 
+Hero를 이용해서 애니메이션을 추가해줄 수 있다. tag에 같은 id를 입력하면 같은 객체로 판단해 이미지가 팝업되는 것 같은 애니메이션 효과가 display 된다.
+
+```dart
+//detail_screen.dart
+  Hero(
+                  tag: widget.id,
+                  child: Container(
+                    width: 250,
+                    clipBehavior: Clip.hardEdge,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 15,
+                            offset: const Offset(10, 10),
+                            color: Colors.black.withOpacity(0.3),
+                          )
+                        ]),
+                    child: Image.network(
+                      widget.thumb,
+                      headers: const {
+                        'Referer': 'https//comic.naver.com',
+                      },
+                    ),
+                  ),
+                ),
+//webtoon_widget.dart
+Hero(
+            tag: id,
+            child: Container(
+              width: 250,
+              clipBehavior: Clip.hardEdge,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 15,
+                      offset: const Offset(10, 10),
+                      color: Colors.black.withOpacity(0.3),
+                    )
+                  ]),
+              child: Image.network(
+                thumb,
+                headers: const {
+                  'Referer': 'https//comic.naver.com',
+                },
+              ),
+            ),
+          ),
+
+
+```
+
 ### 6. Url Launcher
+
+- 설치하기
+
+```dart
+flutter pub add url_launcher
+```
+
+ios에서 해당 기능을 사용하기 위해 `ios/Runner/Info.plist` 파일에서 해당 부분을 추가한다.
+
+```plist
+	<array>
+  		<string>https</string>
+	</array>
+```
+
+- 사용해보기
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+void main() => runApp(
+      const MaterialApp(
+        home: Material(
+          child: Center(
+            child: ElevatedButton(
+              onPressed: onButtonTap,
+              child: Text('Show Flutter homepage'),
+            ),
+          ),
+        ),
+      ),
+    );
+
+  //예제 1
+  onButtonTap() async {
+    final url=Uri.parse('이동할 주소');
+    await launchUrl(url);
+  }
+ //예제 2
+  onButtonTap() async {
+ 	launchUrlString('이동할 주소');
+  }
+
+}
+```
