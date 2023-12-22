@@ -7,7 +7,6 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
   final Future<List<WebtoonModel>> webtoons = ApiService.getTodaysToons();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
