@@ -17,11 +17,11 @@
 | 주차  | 주제                      |          진척도          |
 | ----- | ------------------------- | :----------------------: |
 | 1주차 | Dart 언어 이해하기        | <ul><li>- [X] </li></ul> |
-| 2주차 | Flutter 시작하기          | <ul><li>- [ ] </li></ul> |
-| 3주차 | UI 구성하기               | <ul><li>- [ ] </li></ul> |
-| 4주차 | Widget State              | <ul><li>- [ ] </li></ul> |
-| 5주차 | Data Fetch, FutureBuilder | <ul><li>- [ ] </li></ul> |
-| 6주차 | API, Storage              | <ul><li>- [ ] </li></ul> |
+| 2주차 | Flutter 시작하기          | <ul><li>- [X] </li></ul> |
+| 3주차 | UI 구성하기               | <ul><li>- [X] </li></ul> |
+| 4주차 | Widget State              | <ul><li>- [X] </li></ul> |
+| 5주차 | Data Fetch, FutureBuilder | <ul><li>- [X] </li></ul> |
+| 6주차 | API, Storage              | <ul><li>- [X] </li></ul> |
 
 ## 💼 과제
 
